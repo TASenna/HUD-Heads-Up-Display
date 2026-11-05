@@ -1,0 +1,45 @@
+HUD — PROPRIETARY SOFTWARE LICENCE
+
+Copyright © 2026 T. A. Senna. All rights reserved.
+
+HUD (Heads-Up Display), including its original source code, application structure, original implementation, and associated original materials, is proprietary software.
+
+1. OWNERSHIP
+
+All rights, title, and interest in HUD and its original components remain with the copyright holder, except for third-party components governed by their respective licences.
+
+2. PERMITTED EVALUATION USE
+
+Individuals and organisations reviewing this repository for the purpose of evaluating the author's software development skills or suitability for employment may:
+
+- View and inspect the source code.
+- Download or clone the repository.
+- Build and run the application locally.
+- Examine its implementation for technical assessment and interview purposes.
+
+This permission is limited to non-commercial evaluation.
+
+3. RESTRICTIONS
+
+Without prior written permission from the copyright holder, you may not:
+
+- Sell, commercially exploit, or monetise HUD or a derivative version.
+- Redistribute or publish the source code or compiled application.
+- Create, distribute, or commercially release modified or derivative versions.
+- Rebrand, claim authorship of, or otherwise misrepresent the original project.
+- Incorporate substantial portions of the proprietary implementation into another product or service.
+- Use the project or its proprietary implementation for commercial purposes.
+
+4. THIRD-PARTY COMPONENTS
+
+Third-party libraries, frameworks, dependencies, and assets included in or used by this project remain subject to their respective copyright notices and licence agreements. This licence does not override those terms.
+
+5. ADDITIONAL PERMISSIONS
+
+Any use outside the permitted evaluation purposes requires prior written permission from the copyright holder.
+
+6. DISCLAIMER
+
+HUD is provided for demonstration and evaluation purposes. The software is provided "as is", without warranties of any kind, to the extent permitted by applicable law.
+
+For licensing enquiries or commercial permissions, contact the copyright holder.
