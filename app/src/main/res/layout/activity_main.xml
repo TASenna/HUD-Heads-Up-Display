@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A2A2A">
+
+    <com.taydox.hudtool.FloatingSquaresView
+        android:id="@+id/floatingSquaresView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DD101010"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvHudTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HUD"
+                    android:textColor="#00C0BF"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:letterSpacing="0.05"
+                    android:shadowColor="#00C0BF"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="12"
+                    android:background="@drawable/toolbar_title_bg"/>
+
+                <com.taydox.hudtool.GlimmerBadgeView
+                    android:id="@+id/glimmerProBadge"
+                    android:layout_width="120dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="8dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="900dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp">
+
+            <!-- Opacity row — spans full 900dp -->
+            <LinearLayout
+                android:id="@+id/llOpacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvOpacityLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OPACITY"
+                    android:textColor="#A0AAB0"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:letterSpacing="0.1"
+                    android:layout_marginEnd="12dp"/>
+
+                <SeekBar
+                    android:id="@+id/sbOpacity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:progress="74"
+                    android:max="100"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumbTint="#00C0BF"
+                    android:minHeight="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvOpacityValue"
+                    android:layout_width="48dp"
+                    android:layout_height="wrap_content"
+                    android:text="74%"
+                    android:textColor="#A0AAB0"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:gravity="end"
+                    android:layout_marginStart="12dp"/>
+            </LinearLayout>
+
+            <!-- Image container — full 900dp, image clipped inside border -->
+            <FrameLayout
+                android:id="@+id/flImageContainer"
+                android:layout_width="match_parent"
+                android:layout_height="380dp"
+                android:background="@drawable/image_container_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp"
+                android:clipToPadding="true">
+
+                <LinearLayout
+                    android:id="@+id/llPlaceholder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_menu_camera"
+                        app:tint="#606C75"/>
+
+                    <TextView
+                        android:id="@+id/tvPlaceholderLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap to Select Reference Image / Video"
+                        android:textColor="#606C75"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivSelectedImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:visibility="gone"/>
+
+                <!-- X clear button -->
+                <ImageButton
+                    android:id="@+id/btnClearImage"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="10dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    android:background="@drawable/close_btn_bg"
+                    app:tint="#FFFFFF"
+                    android:visibility="gone"/>
+
+            </FrameLayout>
+
+            <!-- Launch button — centered, ~480dp wide -->
+            <FrameLayout
+                android:id="@+id/containerLaunch"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginEnd="210dp">
+
+                <com.taydox.hudtool.ShimmerView
+                    android:id="@+id/shimmerLaunch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <Button
+                    android:id="@+id/btnLaunch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:backgroundTint="#2D6A5F"
+                    android:text="LAUNCH OVERLAY"
+                    android:textColor="#00C0BF"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    app:cornerRadius="8dp"/>
+            </FrameLayout>
+
+            <!-- Stop button — narrower than launch -->
+            <FrameLayout
+                android:id="@+id/containerStop"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="255dp"
+                android:layout_marginEnd="255dp">
+
+                <com.taydox.hudtool.ShimmerView
+                    android:id="@+id/shimmerStop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <Button
+                    android:id="@+id/btnStop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:backgroundTint="#7A3B3B"
+                    android:text="STOP OVERLAY"
+                    android:textColor="#FF9E9E"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    app:cornerRadius="8dp"/>
+            </FrameLayout>
+
+            <!-- Workspaces Row -->
+            <LinearLayout
+                android:id="@+id/llWorkspaces"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvWorkspacesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WORKSPACES"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:layout_marginBottom="4dp"/>
+
+                <View
+                    android:id="@+id/vWorkspacesDivider"
+                    android:layout_width="40dp"
+                    android:layout_height="2dp"
+                    android:background="#00C0BF"
+                    android:layout_marginBottom="16dp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/llSavedWorkspaces"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <!-- Dynamic items will be added here -->
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Cinematic Splash Overlay -->
+    <FrameLayout
+        android:id="@+id/flSplashOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="100dp">
+
+        <TextView
+            android:id="@+id/tvSplashLogo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingHorizontal="32dp"
+            android:text="HUD"
+            android:textColor="#00C0BF"
+            android:textSize="64sp"
+            android:textStyle="bold"
+            android:alpha="0"
+            android:letterSpacing="0.15"
+            android:shadowColor="#00C0BF"
+            android:shadowRadius="20"/>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

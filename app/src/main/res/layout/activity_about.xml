@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2A2A2A">
+
+    <com.taydox.hudtool.FloatingSquaresView
+        android:id="@+id/floatingSquaresView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DD101010"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/toolbar_title_bg"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HUD"
+                    android:textColor="#00C0BF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:shadowColor="#00C0BF"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="12"/>
+
+                <View
+                    android:layout_width="1.5dp"
+                    android:layout_height="20dp"
+                    android:background="#3A3A3A"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ABOUT INFO"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05"/>
+
+                <com.taydox.hudtool.GlimmerBadgeView
+                    android:id="@+id/glimmerProBadge"
+                    android:layout_width="120dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="10dp"/>
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="40dp">
+
+            <!-- THE TOOL -->
+            <TextView
+                android:id="@+id/tvAboutTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="THE TOOL"
+                android:textColor="#00C0BF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvAboutText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HUD (Heads-Up-Display) was built to solve a simple problem: being able to have a floating reference images on mobile that you can still let you interact with other apps in the background."
+                android:textColor="#E0E0E0"
+                android:textSize="15sp"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvAboutText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Coming from PC, I realized there was a huge gap when it came to overlay apps. The programs I used didn't have a decent mobile equivalent. So, after searching high and low for a tool that just stayed both in and out of the way (with ghost overlays and quick controls), I decided to build it myself specifically for digital artists, or gamers or anyone really."
+                android:textColor="#E0E0E0"
+                android:textSize="15sp"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvAboutText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I know it's not perfect — and since I developed this primarily on my Samsung Tab S9 Ultra, the experience might vary across devices. But I genuinely hope it helps you. Your feedback would be more than helpful :). Let me know what's broken, what needs fixing, or what feature you'd like me to try add."
+                android:textColor="#E0E0E0"
+                android:textSize="15sp"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="32dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#33FFFFFF"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- THE CREATOR -->
+            <TextView
+                android:id="@+id/tvCreatorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="THE CREATOR"
+                android:textColor="#00C0BF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvCreatorText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hi there! I'm Thato A. Senna (i go by Taydo_X... or just Taydo... or Tay), I'm a digital artist and illustrator from South Africa (Deep in the Motherland lol). Nice to meet you! :)"
+                android:textColor="#E0E0E0"
+                android:textSize="15sp"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvCreatorText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Like you, I enjoy drawing for fun, but I hit a wall: the perfect reference tool just didn't seem to exist on mobile. So, just like Thanos, I had to hang up my pen and say 'Fine. I'll do it myself.'. Jk, I genuinely just wanted to make the process easier for myself and other artists. The fact that this app can help you — whether you're drawing a character and need help with outfits or hairstyles or poses or even scenery, or using it for a totally random 3D modeling workflow, whatever the use case — would make me super happy. I can't wait to see what amazing random stuff you use it for."
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvCreatorText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I also take on illustration commissions! If you're looking for a piece, or just want to see what I'm currently working on, you can find me here:"
+                android:textColor="#B0B0B0"
+                android:textSize="14sp"
+                android:lineSpacingMultiplier="1.4"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- Handle -->
+            <TextView
+                android:id="@+id/tvCreatorHandle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@TAYDO_X | _DIGITAL.FART_"
+                android:textSize="22sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- Buttons -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnInstagram"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="INSTAGRAM (LATEST WORK)"
+                android:textColor="#1A1A1A"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                app:backgroundTint="#00C0BF"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="14dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnInstagramOG"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="INSTAGRAM (THE OG STUFF)"
+                android:textColor="#00C0BF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                app:backgroundTint="#2A2A2A"
+                app:strokeColor="#00C0BF"
+                app:strokeWidth="1dp"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="14dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCommission"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="COMMISSION INFO"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                app:backgroundTint="#2A2A2A"
+                app:strokeColor="#3A3A3A"
+                app:strokeWidth="1dp"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="32dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

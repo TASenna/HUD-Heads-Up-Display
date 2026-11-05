@@ -1,0 +1,59 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer Brackets (Cyan HUD Style) -->
+    <group>
+        <!-- Top Left -->
+        <path
+            android:strokeColor="#00C0BF"
+            android:strokeWidth="2.5"
+            android:strokeLineCap="square"
+            android:pathData="M24,36 V24 H36" />
+        <!-- Top Right -->
+        <path
+            android:strokeColor="#00C0BF"
+            android:strokeWidth="2.5"
+            android:strokeLineCap="square"
+            android:pathData="M72,24 H84 V36" />
+        <!-- Bottom Left -->
+        <path
+            android:strokeColor="#00C0BF"
+            android:strokeWidth="2.5"
+            android:strokeLineCap="square"
+            android:pathData="M24,72 V84 H36" />
+        <!-- Bottom Right -->
+        <path
+            android:strokeColor="#00C0BF"
+            android:strokeWidth="2.5"
+            android:strokeLineCap="square"
+            android:pathData="M72,84 H84 V72" />
+    </group>
+
+    <!-- "HUD" Geometric Text Rendering -->
+    <group android:translateX="26" android:translateY="44">
+        <!-- H -->
+        <path
+            android:fillColor="#00C0BF"
+            android:pathData="M0,0 h4 v8 h8 v-8 h4 v20 h-4 v-8 h-8 v8 h-4 z" />
+        <!-- U -->
+        <path
+            android:fillColor="#00C0BF"
+            android:pathData="M20,0 h4 v16 h8 v-16 h4 v16 c0,2.2 -1.8,4 -4,4 h-8 c-2.2,0 -4,-1.8 -4,-4 z" />
+        <!-- D -->
+        <path
+            android:fillColor="#00C0BF"
+            android:pathData="M40,0 h8 c4.4,0 8,3.6 8,8 v4 c0,4.4 -3.6,8 -8,8 h-8 z M44,4 v12 h4 c2.2,0 4,-1.8 4,-4 v-4 c0,-2.2 -1.8,-4 -4,-4 z" />
+    </group>
+
+    <!-- Optional Glow Effect Layer (Subtle) -->
+    <group android:alpha="0.3">
+        <path
+            android:strokeColor="#00C0BF"
+            android:strokeWidth="6"
+            android:pathData="M24,36 V24 H36 M72,24 H84 V36 M24,72 V84 H36 M72,84 H84 V72" />
+    </group>
+
+</vector>

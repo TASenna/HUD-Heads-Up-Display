@@ -1,0 +1,33 @@
+*.iml
+.gradle/
+.kotlin/
+.idea/
+build/
+**/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+local.properties
+
+# Signing keys and certificates
+*.jks
+*.keystore
+*.pem
+*.p12
+*.pfx
+
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+secrets.properties
+credentials.properties
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Generated Android release outputs
+/app/free/release/
+/app/premium/release/

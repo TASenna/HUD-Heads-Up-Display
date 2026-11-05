@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/overlayRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#66000000">
+
+    <!-- Solid top drag bar -->
+    <LinearLayout
+        android:id="@+id/dragHandle"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:background="#DD101010"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tvDragLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DRAG TO MOVE"
+            android:textColor="#A0AAB0"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"/>
+    </LinearLayout>
+
+    <!-- Video control row (under drag handle) -->
+    <LinearLayout
+        android:id="@+id/llVideoOverlayControls"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_below="@id/dragHandle"
+        android:orientation="horizontal"
+        android:background="#EE101010"
+        android:gravity="center_vertical"
+        android:visibility="gone">
+
+        <ImageButton
+            android:id="@+id/btnOverlayPrevFrame"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="#00C0BF"
+            android:src="@android:drawable/ic_media_previous"
+            app:tint="#101010"
+            android:scaleType="centerInside"
+            android:padding="10dp"/>
+
+        <SeekBar
+            android:id="@+id/sbOverlayScrubber"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:max="1000"
+            android:progress="0"
+            android:thumbTint="#00C0BF"
+            android:progressTint="#00C0BF"
+            android:splitTrack="false"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"/>
+
+        <ImageButton
+            android:id="@+id/btnOverlayNextFrame"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="#00C0BF"
+            android:src="@android:drawable/ic_media_next"
+            app:tint="#101010"
+            android:scaleType="centerInside"
+            android:padding="10dp"/>
+    </LinearLayout>
+
+    <!-- Image sandbox — ImageView is match_parent so matrix draws freely -->
+    <FrameLayout
+        android:id="@+id/imageSandbox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/llVideoOverlayControls"
+        android:layout_above="@+id/bottomBar"
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        android:background="#00000000">
+
+        <ImageView
+            android:id="@+id/ivOverlayImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="matrix"/>
+
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/pvOverlayVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:use_controller="false"
+            app:surface_type="texture_view"
+            android:background="#00000000"/>
+
+        <!-- Perspective Grid Overlay (within sandbox) -->
+        <com.taydox.hudtool.PerspectiveGridView
+            android:id="@+id/pgvOverlayGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <!-- Bottom bar with both resize handles -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#00000000">
+
+        <!-- Bottom LEFT resize handle -->
+        <FrameLayout
+            android:id="@+id/resizeHandleLeft"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <View
+                android:layout_width="24dp"
+                android:layout_height="4dp"
+                android:layout_gravity="bottom|start"
+                android:background="#00C0BF"/>
+            <View
+                android:layout_width="4dp"
+                android:layout_height="24dp"
+                android:layout_gravity="bottom|start"
+                android:background="#00C0BF"/>
+        </FrameLayout>
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <!-- Bottom RIGHT resize handle -->
+        <FrameLayout
+            android:id="@+id/resizeHandle"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+            <View
+                android:layout_width="24dp"
+                android:layout_height="4dp"
+                android:layout_gravity="bottom|end"
+                android:background="#00C0BF"/>
+            <View
+                android:layout_width="4dp"
+                android:layout_height="24dp"
+                android:layout_gravity="bottom|end"
+                android:background="#00C0BF"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

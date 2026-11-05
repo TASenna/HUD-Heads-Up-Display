@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gestureOverlayRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CC0D0F10">
+
+    <!-- Image fills most of the window -->
+    <ImageView
+        android:id="@+id/ivGestureImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/gestureControlBar"
+        android:scaleType="fitCenter"
+        android:padding="8dp"/>
+
+    <!-- Timer badge top center -->
+    <FrameLayout
+        android:id="@+id/timerBadge"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp">
+
+        <ProgressBar
+            android:id="@+id/gestureTimerProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:progressDrawable="@drawable/circular_progress"
+            android:progress="100"
+            android:rotation="-90"/>
+
+        <TextView
+            android:id="@+id/tvGestureTimer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="60"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+
+    </FrameLayout>
+
+    <!-- Pose counter top right -->
+    <TextView
+        android:id="@+id/tvGesturePoseCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:text="1/12"
+        android:textColor="#A0AAB0"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:background="#99000000"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"/>
+
+    <!-- Bottom control bar -->
+    <LinearLayout
+        android:id="@+id/gestureControlBar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true"
+        android:background="#DD0D0F10"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Pause/Play -->
+        <ImageButton
+            android:id="@+id/btnGesturePause"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_pause"
+            android:background="@drawable/panel_btn_gray_bg"
+            android:scaleType="centerInside"
+            android:padding="8dp"
+            android:layout_marginEnd="12dp"/>
+
+        <!-- Skip -->
+        <ImageButton
+            android:id="@+id/btnGestureSkip"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_skip"
+            android:background="@drawable/panel_btn_gray_bg"
+            android:scaleType="centerInside"
+            android:padding="8dp"
+            android:layout_marginEnd="12dp"/>
+
+        <!-- End -->
+        <ImageButton
+            android:id="@+id/btnGestureEnd"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="#FFFFFF"
+            android:background="@drawable/panel_btn_red_bg"
+            android:scaleType="centerInside"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+
+    <!-- Resize handle bottom right — above control bar -->
+    <FrameLayout
+        android:id="@+id/gestureResizeHandle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_above="@+id/gestureControlBar"
+        android:layout_alignParentEnd="true">
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="3dp"
+            android:layout_gravity="bottom|end"
+            android:background="#00C0BF"/>
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom|end"
+            android:background="#00C0BF"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

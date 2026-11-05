@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#DD101010"
+    android:padding="24dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/ivTutorialIcon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/ic_launcher_foreground"/>
+
+    <TextView
+        android:id="@+id/tvTutorialTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to HUD Pro"
+        android:textColor="#00C0BF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/tvTutorialDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your ultimate companion for artistic reference. Let's get you started."
+        android:textColor="#A0AAB0"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/btnTutorialNext"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:backgroundTint="#00C0BF"
+        android:text="NEXT"
+        android:textColor="#101010"
+        android:textStyle="bold"/>
+
+</LinearLayout>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/mainRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#1A1E21">
+
+        <com.taydox.hudtool.FloatingSquaresView
+            android:id="@+id/floatingSquaresView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+        <!-- URL Bar toolbar -->
+        <LinearLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#DD101010"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/btnWebBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_media_previous"
+                android:background="@android:color/transparent"
+                android:tint="#A0AAB0"/>
+
+            <ImageButton
+                android:id="@+id/btnWebForward"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_media_next"
+                android:background="@android:color/transparent"
+                android:tint="#A0AAB0"/>
+
+            <EditText
+                android:id="@+id/etUrl"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="#2A2A2A"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#606C75"
+                android:hint="Search or enter URL..."
+                android:textSize="13sp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="textUri"
+                android:imeOptions="actionGo"
+                android:singleLine="true"/>
+
+            <ImageButton
+                android:id="@+id/btnWebClose"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:background="@android:color/transparent"
+                android:tint="#A0AAB0"/>
+
+        </LinearLayout>
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- CAPTURE & OVERLAY button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="#00C0BF"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/btnCaptureOverlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CAPTURE &amp; OVERLAY"
+                android:textColor="#1A1A1A"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@android:drawable/ic_menu_edit"
+                android:tint="#1A1A1A"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tutorial overlay — blocking full screen -->
+    <LinearLayout
+        android:id="@+id/llTutorial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E61A1E21"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingHorizontal="32dp"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/tvWebTutorialTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WHOA, CALM DOWN BUDDY."
+            android:textColor="#00C0BF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/tvWebTutorialText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I see you've wandered into the deep end... the Web Reference View! Let me explain how this works."
+            android:textColor="#E0E0E0"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.4"
+            android:layout_marginBottom="28dp"/>
+
+        <TextView
+            android:id="@+id/tvWebTutorialTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THE FAST WAY (SLIGHTLY MESSY)"
+            android:textColor="#00C0BF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvWebTutorialText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap the Capture &amp; Overlay button at the bottom. This takes a screenshot of the entire page."
+            android:textColor="#B0B0B0"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/tvWebTutorialTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THE CLEAN WAY (PRO ARTIST)"
+            android:textColor="#00C0BF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvWebTutorialText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find the specific image you want. Hold your finger down on it (Long Press). This grabs the clean, original image file — no UI clutter!"
+            android:textColor="#B0B0B0"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.3"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvWebTutorialText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good luck out there."
+            android:textColor="#606C75"
+            android:textSize="13sp"
+            android:layout_marginBottom="28dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+
+            <CheckBox
+                android:id="@+id/cbDontShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#00C0BF"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/tvWebTutorialDontShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Got it, don't show this again"
+                android:textColor="#A0AAB0"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnTutorialDismiss"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="WHATEVER YOU SAY UNC"
+            android:textColor="#1A1A1A"
+            android:textStyle="bold"
+            android:backgroundTint="#00C0BF"
+            app:cornerRadius="8dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>

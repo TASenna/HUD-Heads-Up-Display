@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_library"
+        android:icon="@drawable/ic_library"
+        android:title="Library"
+        app:showAsAction="always"/>
+
+    <!-- Only shows in Pro build -->
+    <item
+        android:id="@+id/action_gesture"
+        android:icon="@drawable/ic_gesture"
+        android:title="Speed Sketch"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_tutorial"
+        android:title="Show Tutorial"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="Settings"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_about"
+        android:title="About HUD"
+        app:showAsAction="never"/>
+
+</menu>

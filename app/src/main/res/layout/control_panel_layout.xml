@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/panelRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#CC101010"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="6dp"
+    android:elevation="12dp">
+
+    <!-- Vertical Opacity Slider -->
+    <FrameLayout
+        android:id="@+id/flPrecisionSlider"
+        android:layout_width="32dp"
+        android:layout_height="300dp"
+        android:visibility="gone"
+        android:layout_gravity="center_vertical">
+
+        <SeekBar
+            android:id="@+id/sbPrecisionOpacity"
+            android:layout_width="300dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:rotation="270"
+            android:max="100"
+            android:progress="75"
+            android:thumbTint="#00C0BF"
+            android:progressTint="#00C0BF"
+            android:splitTrack="false" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Large invisible touch target for Toggle/Drag -->
+        <FrameLayout
+            android:id="@+id/flToggleContainer"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/btnTogglePanel"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:text="‹"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/panel_btn_gray_bg"
+                android:clickable="false"
+                android:focusable="false"/>
+
+        </FrameLayout>
+
+        <!-- Scrollable Button Container -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvPanelButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/llPanelButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Layer switcher — scrollable horizontal chips -->
+                <HorizontalScrollView
+                android:id="@+id/layerScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:id="@+id/llLayerChips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"/>
+
+            </HorizontalScrollView>
+
+            <!-- Add Layer button — only visible in Pro -->
+            <ImageButton
+                android:id="@+id/btnAddLayer"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_add_layer"
+                android:background="@drawable/panel_btn_gray_bg"
+                android:scaleType="centerInside"
+                android:padding="10dp"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Save Workspace button — only visible in Pro -->
+            <ImageButton
+                android:id="@+id/btnSaveWorkspace"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_menu_save"
+                android:background="@drawable/panel_btn_gray_bg"
+                android:scaleType="centerInside"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"
+                app:tint="#FFFFFF"/>
+
+            <!-- LOCK -->
+            <ImageButton
+                android:id="@+id/btnLock"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_lock_open"
+                android:background="@drawable/panel_btn_green_bg"
+                android:scaleType="centerInside"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- GRAYSCALE -->
+            <ImageButton
+                android:id="@+id/btnGrayscale"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_grayscale"
+                android:background="@drawable/panel_btn_gray_bg"
+                android:scaleType="centerInside"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- FLIP H -->
+            <ImageButton
+                android:id="@+id/btnFlipH"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_flip_h"
+                android:background="@drawable/panel_btn_gray_bg"
+                android:scaleType="centerInside"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- FLIP V -->
+            <ImageButton
+                android:id="@+id/btnFlipV"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_flip_v"
+                android:background="@drawable/panel_btn_gray_bg"
+                android:scaleType="centerInside"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- GRID CYCLE (OFF -> 1P -> 2P -> 3P) -->
+            <FrameLayout
+                android:id="@+id/flGridControl"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginBottom="8dp">
+                <ImageButton
+                    android:id="@+id/btnGridCycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@android:drawable/ic_menu_directions"
+                    android:background="@drawable/panel_btn_gray_bg"
+                    android:scaleType="centerInside"
+                    android:padding="12dp"
+                    app:tint="#FFFFFF"/>
+                <TextView
+                    android:id="@+id/tvGridModeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="4dp"
+                    android:text="OFF"
+                    android:textColor="#00C0BF"
+                    android:textSize="8sp"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+
+            <!-- OPACITY -->
+            <TextView
+                android:id="@+id/tvOverlayOpacity"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="75%"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/panel_btn_dark_bg"
+                android:layout_marginBottom="8dp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- VIDEO CONTROLS (Hidden by default) -->
+            <LinearLayout
+                android:id="@+id/llVideoControls"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp">
+
+                <!-- Play/Pause -->
+                <ImageButton
+                    android:id="@+id/btnVideoPlayPause"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:src="@android:drawable/ic_media_pause"
+                    android:background="@drawable/panel_btn_gray_bg"
+                    android:scaleType="centerInside"
+                    android:padding="10dp"
+                    android:layout_marginBottom="4dp"/>
+
+                <!-- Frame by Frame -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+                    <ImageButton
+                        android:id="@+id/btnPanelPrevFrame"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/ic_media_previous"
+                        android:background="@drawable/panel_btn_gray_bg"
+                        android:scaleType="centerInside"
+                        android:padding="8dp"
+                        android:layout_marginEnd="2dp"
+                        app:tint="#00C0BF"/>
+                    <ImageButton
+                        android:id="@+id/btnPanelNextFrame"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@android:drawable/ic_media_next"
+                        android:background="@drawable/panel_btn_gray_bg"
+                        android:scaleType="centerInside"
+                        android:padding="8dp"
+                        app:tint="#00C0BF"/>
+                </LinearLayout>
+
+                <!-- Speed chips -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:layout_marginBottom="4dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/btnSpeed025"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0.25x"
+                            android:textSize="9sp"
+                            android:textColor="#A0AAB0"
+                            android:gravity="center"
+                            android:background="@drawable/timer_chip_bg"
+                            android:paddingHorizontal="4dp"
+                            android:layout_marginEnd="2dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+                        <TextView
+                            android:id="@+id/btnSpeed05"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="0.5x"
+                            android:textSize="9sp"
+                            android:textColor="#A0AAB0"
+                            android:gravity="center"
+                            android:background="@drawable/timer_chip_bg"
+                            android:paddingHorizontal="4dp"
+                            android:layout_marginEnd="2dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+                        <TextView
+                            android:id="@+id/btnSpeed1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="1x"
+                            android:textSize="9sp"
+                            android:textColor="#00C0BF"
+                            android:gravity="center"
+                            android:background="@drawable/timer_chip_selected_bg"
+                            android:paddingHorizontal="4dp"
+                            android:layout_marginEnd="2dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+                        <TextView
+                            android:id="@+id/btnSpeed2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="2x"
+                            android:textSize="9sp"
+                            android:textColor="#A0AAB0"
+                            android:gravity="center"
+                            android:background="@drawable/timer_chip_bg"
+                            android:paddingHorizontal="4dp"
+                            android:clickable="true"
+                            android:focusable="true"/>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <!-- PRECISION TRAY (Hidden by default) -->
+            <LinearLayout
+                android:id="@+id/llPrecisionTray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp"
+                android:background="#1AFFFFFF"
+                android:padding="4dp">
+
+                <EditText
+                    android:id="@+id/etPrecisionOpacity"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:background="#20FFFFFF"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:hint="OPACITY"
+                    android:textColorHint="#60FFFFFF"
+                    android:layout_marginBottom="2dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/etPrecisionX"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:background="#20FFFFFF"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:gravity="center"
+                        android:inputType="numberSigned"
+                        android:hint="X"
+                        android:textColorHint="#60FFFFFF"/>
+                    <EditText
+                        android:id="@+id/etPrecisionY"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:background="#20FFFFFF"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        android:gravity="center"
+                        android:inputType="numberSigned"
+                        android:hint="Y"
+                        android:layout_marginStart="2dp"
+                        android:textColorHint="#60FFFFFF"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- CLOSE current layer -->
+            <ImageButton
+                android:id="@+id/btnClose"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:tint="#FFFFFF"
+                android:background="@drawable/panel_btn_red_bg"
+                android:scaleType="centerInside"
+                android:padding="12dp"/>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="#252B2F"
+    android:layout_marginBottom="3dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <FrameLayout
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        android:clipChildren="true">
+
+        <ImageView
+            android:id="@+id/ivThumb4"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="60dp"
+            android:scaleType="centerCrop"
+            android:alpha="0.2"
+            android:background="#1E2326"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/ivThumb3"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
+            android:scaleType="centerCrop"
+            android:alpha="0.4"
+            android:background="#1E2326"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/ivThumb2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:scaleType="centerCrop"
+            android:alpha="0.65"
+            android:background="#1E2326"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/ivThumb1"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="#1E2326"/>
+
+        <TextView
+            android:id="@+id/tvAlbumPlaceholder"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="ALBUM"
+            android:textColor="#606C75"
+            android:textSize="10sp"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@drawable/fade_right"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp">
+
+        <TextView
+            android:id="@+id/tvAlbumName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvAlbumCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#A0AAB0"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="▶"
+        android:textColor="#00C0BF"
+        android:textSize="20sp"
+        android:layout_marginEnd="16dp"/>
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.HUDReferenceOverlayTool" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+
+    <style name="Theme.HUDReferenceOverlayTool" parent="Base.Theme.HUDReferenceOverlayTool" />
+
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textColorPrimary">#00C0BF</item>
+        <item name="android:colorAccent">#00C0BF</item>
+    </style>
+
+    <style name="HudTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">#42EBEB</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/toolbar_title_bg"
+    android:gravity="center_vertical"
+    android:padding="4dp">
+
+    <!-- Large invisible touch target for Toggle/Drag -->
+    <FrameLayout
+        android:id="@+id/flToggleContainer"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/btnTogglePanel"
+            android:layout_width="24dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:text="‹"
+            android:textColor="#00C0BF"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:clickable="false"
+            android:focusable="false"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/llPanelButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnLock"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/ic_lock_open"
+            android:background="@drawable/panel_btn_green_bg"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="6dp"
+            app:tint="#101010"/>
+
+        <TextView
+            android:id="@+id/tvOverlayOpacity"
+            android:layout_width="48dp"
+            android:layout_height="38dp"
+            android:text="75%"
+            android:textColor="#00C0BF"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:background="@drawable/panel_btn_dark_bg"/>
+
+    </LinearLayout>
+
+</LinearLayout>
